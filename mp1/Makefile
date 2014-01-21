@@ -5,11 +5,11 @@ INCL=-I $(LIBWB)
 MKREPORT=../mkreport
 SM=sm_20
 
-# Uncomment if using Ocelot emulator
-LIBS=-l wb -l cuda -l ocelot
-CC=g++
+# Uncomment next two lines if using Ocelot emulator
+#LIBS=-l wb -l cuda -l ocelot
+#CC=g++
 
-# Uncomment if using GPU card
+# Uncomment next two lines if using GPU card
 LIBS=-l wb -l cuda -l cudart
 CC=nvcc
 
@@ -28,11 +28,11 @@ mp1.ptx: mp1.cu $(LIBWB)/wb.h
 	$(NVCC) --ptx $(OPT) mp1.cu -o mp1.ptx -arch=$(SM) -I $(INCL)
 
 tests: mp1
-	for i in 0 1 2 3 4 5 6 7 8 9; do make --no-print-directory test arg=$$i; done
+	for i in 0 1 2 3 4 5 6 7 8 9; do make --no-print-directory test n=$$i; done
 
 test: mp1
-	@echo Test ${arg}
-	./mp1 -e data/${arg}/output.raw -i data/${arg}/input0.raw,data/${arg}/input1.raw -o out${arg}.raw -t vector | $(MKREPORT)
+	@echo Test ${n}
+	./mp1 -e data/${n}/output.raw -i data/${n}/input0.raw,data/${n}/input1.raw -o out${n}.raw -t vector | $(MKREPORT)
 
 data: dataset.zip
 	unzip dataset.zip
@@ -41,5 +41,6 @@ clean:
 	rm -f mp1 mp1.ptx mp1.o out*.raw
 
 setup:
+	rm -rf data
 	unzip dataset.zip
-	cp $(LIBWB)/skel/mp1.cu mp1.cu
+	cp -b $(LIBWB)/skel/mp1.cu mp1.cu
