@@ -32,7 +32,7 @@ tests: mp4
 
 test: mp4
 	@echo Test ${n}
-	./mp4 -e data/${n}/output.raw -i data/${n}/input0.raw,data/${n}/input1.raw -o out${n}.raw -t image | grep -v cuInit | $(MKREPORT)
+	./mp4 -e data/${n}/output.ppm -i data/${n}/input0.ppm,data/${n}/input1.csv -o out${n}.ppm -t image | grep -v cuInit | $(MKREPORT)
 
 data: dataset.zip
 	unzip dataset.zip
