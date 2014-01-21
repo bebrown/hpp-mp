@@ -5,7 +5,7 @@ NVCC=nvcc
 
 # Uncomment if using Ocelot emulator
 #CC=g++
-#LIBS=-l wb -l cuda -l ocelot
+#LIBS=-l wb -l ocelot
 
 # Uncomment if using GPU card
 LIBS=-l wb -l cuda -l cudart
@@ -21,7 +21,7 @@ mp0.o: mp0.cu $(LIBWB)/wb.h
 	$(NVCC) $(DEBUG) $(OPT) -arch=sm_20 -I $(INCL) mp0.cu -c
 
 test: mp0
-	./mp0 | ../mkreport
+	./mp0 | grep -v cuInit | ../mkreport
 
 clean:
 	rm -f mp0 mp0.o
