@@ -25,3 +25,6 @@ test: mp0
 
 clean:
 	rm -f mp0 mp0.o
+
+setup:
+	cp -b $(LIBWB)/skel/mp0.cu mp0.cu
