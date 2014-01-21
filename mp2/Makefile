@@ -10,8 +10,8 @@ SM=sm_20
 #CC=g++
 
 # Uncomment next two lines if using GPU card
-LIBS=-l wb -l cuda -l cudart
-CC=nvcc
+#LIBS=-l wb -l cuda -l cudart
+#CC=nvcc
 
 OPT=-O2
 #DEBUG=-g

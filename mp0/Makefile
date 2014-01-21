@@ -8,8 +8,8 @@ NVCC=nvcc
 #LIBS=-l wb -l ocelot
 
 # Uncomment if using GPU card
-LIBS=-l wb -l cuda -l cudart
-CC=nvcc
+#LIBS=-l wb -l cuda -l cudart
+#CC=nvcc
 
 OPT=-O2
 #DEBUG=-g
