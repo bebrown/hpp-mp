@@ -27,3 +27,9 @@ To run just a single test, use a commands like this:
     make test n=9
 
 The number is the test number (0 through 9).
+
+# Updating
+
+Make sure you have the latest files by updating from the GitHub repository.
+
+    git pull
