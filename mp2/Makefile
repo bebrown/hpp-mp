@@ -32,7 +32,7 @@ tests: mp2
 
 test: mp2
 	@echo Test ${n}
-	./mp2 -e data/${n}/output.raw -i data/${n}/input0.raw,data/${n}/input1.raw -o out${n}.raw -t vector | grep -v cuInit | $(MKREPORT)
+	./mp2 -e data/${n}/output.raw -i data/${n}/input0.raw,data/${n}/input1.raw -o out${n}.raw -t matrix | grep -v cuInit | $(MKREPORT)
 
 data: dataset.zip
 	unzip dataset.zip
