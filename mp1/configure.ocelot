@@ -1,0 +1,37 @@
+{
+        ocelot: "ocelot",
+        trace: { 
+                database: "traces/database.trace",
+                memoryChecker: {
+                        enabled: false,
+                        checkInitialization: false
+                },
+                raceDetector: {
+                        enabled: false,
+                        ignoreIrrelevantWrites: false
+                },
+                debugger: {
+                        enabled: false,
+                        kernelFilter: "_Z13scalarProdGPUPfS_S_ii",
+                        alwaysAttach: true
+                }
+        },
+        cuda: {
+                implementation: "CudaRuntime",
+                runtimeApiTrace: "trace/CudaAPI.trace"
+        },
+        executive: {
+                devices: [emulated],
+                preferredISA: nvidia,
+                port: 2011,
+                host: "127.0.0.1",
+                optimizationLevel: full,
+                defaultDeviceID: 0,
+                asynchronousKernelLaunch: true,
+                workerThreadLimit: 2,
+                warpSize: 16
+        },
+        optimizations: {
+                subkernelSize: 10000
+        }
+}
