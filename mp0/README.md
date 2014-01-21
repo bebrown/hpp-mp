@@ -1,4 +1,4 @@
-# SETUP
+# Setup
 
 Copy the mp0.cu file into the current directory.
 
@@ -8,7 +8,7 @@ Then edit the Makefile. Uncomment the appropriate section, depending on whether 
 are running on a GPU card or using the Ocelot emulator.
 
 
-# RUNNING
+# Compiling and Running
 
 Build the mp0 executable.
 
