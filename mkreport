@@ -1,0 +1,7 @@
+#! /bin/bash
+jq -r -M \
+'"Time Data",
+(.timer.elements[] | (.end_function + "::" + (.start_line | tostring) + " " + (.elapsed_time / 1000000 | tostring) + "ms " + .message)),
+"Log Data",
+(.logger.elements[].message),
+(if .solution_exists == true then "Test Results",(if .solution.correctq == false then .solution.message else "PASSED" end) else empty end)'
