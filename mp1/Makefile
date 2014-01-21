@@ -39,3 +39,7 @@ data: dataset.zip
 
 clean:
 	rm -f mp1 mp1.ptx mp1.o out*.raw
+
+setup:
+	unzip dataset.zip
+	cp $(LIBWB)/skel/mp1.cu mp1.cu
